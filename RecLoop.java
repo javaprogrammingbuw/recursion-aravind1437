@@ -21,7 +21,15 @@ public class RecLoop{
 			return euclidRec(a - b, b);
 		}
 	}
-
+	 private static int euclidIterative(int a, int b) {
+			int temp = 0;
+			while (b != 0) {
+				temp = b;
+				b = a % b;
+				a = temp;
+			}
+			return a;
+		}
     public static double powIterative(final double base, final int n) {
 		if (n < 0) {
 			System.out.println("(Our version of) power is undefined for negative numbers.");
@@ -35,4 +43,34 @@ public class RecLoop{
 			return result;
 		}
 	}
+
+    public static double powRek(float b, float n) {
+		float result = 0;
+		if(n<0) {
+			System.out.println("power is undefined for negative numbers.");
+		return -1;
+		}else if(n == 0) {
+			return 1;
+		}else if(n>0) {
+			result = (float) (b * powRek(b, n-1));
+		}
+      return result;
+}
+
+public static void main(String[] args){
+	
+	Scanner scan =new Scanner(System.in);
+	
+	System.out.println("enter the numbers");
+	int x1=scan.nextInt();
+	int x2=scan.nextInt();
+	
+	System.out.println("EuclidRec : " + euclidRec(x1,x2));
+	
+	System.out.println("euclidInterative: "+euclidIterative(x1,x2));
+	
+	System.out.println("PowerIterative : " + powIterative(x1,x2));
+	
+	System.out.println("PowerRek : " + powRek(x1,x2));
+}
 }
