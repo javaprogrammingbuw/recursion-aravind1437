@@ -8,7 +8,7 @@ public class Fibonacci {
     	
     	System.out.println("Enter the position (Index) of number");
     	int n = scan.nextInt();
-    	int f = fibRek(n);
+    	int f = fibItr(n);
     	
     	
    System.out.println("The fibonacci number with the corresponding index is " + f);
@@ -28,11 +28,10 @@ public class Fibonacci {
 	}
 
 	public static int fibItr (int n) {
-		//Not working
 		int a = 0;
 	 	int b = 1;
 	       
-	        for (int i = 1; i <n; i++)
+	        for (int i = 1; i <= n; i++)
 	        {
 	            int c = a;
 	            a = b;
@@ -42,7 +41,7 @@ public class Fibonacci {
 	   			
 	           }
 	        }
-			return 0;
+			return a;
 	        
 		
 	} 
